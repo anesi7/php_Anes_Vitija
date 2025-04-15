@@ -7,7 +7,7 @@
 <body>
     <?php
     include_once("config.php");
-    $sql = "select * from user";
+    $sql = "select * from users";
     $getuser = $conn->prepare($sql);
 
     $getuser->execute();
@@ -35,8 +35,11 @@ foreach($user as $user){
     <td><?=$user["name"]?></td>
     <td><?=$user["surname"]?></td>
     <td><?=$user["email"]?></td>
+    <td> <?="<a href='delete.php?id=$user[id]'>Delete</a>"?></td>
 </tr>
-<?php } ?>
+<?php
+ } 
+ ?>
 </tbody>
 </table>
 
