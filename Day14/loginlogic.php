@@ -12,9 +12,10 @@ if(empty($username)  || empty($password))
 echo "Fill all the fields";
 header("refresh:2; url=login.php");
 
-}else {
+}else{
     $sql = "SELECT * from users where username=:username";
     $insertSql = $conn ->prepare($sql);
+
     $insertSql->bindParam(":username",$username);
 
     $insertSql-> execute();
