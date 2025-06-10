@@ -1,0 +1,164 @@
+/* Custom CSS for KTM Shop */
+.hero-section {
+  background: linear-gradient(135deg, #ff6600 0%, #cc5200 100%);
+  padding: 100px 0;
+  margin-bottom: 50px;
+}
+
+.motorcycle-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: none;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.motorcycle-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.category-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: none;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.category-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+}
+
+.text-primary {
+  color: #ff6600 !important;
+}
+
+.btn-primary {
+  background-color: #ff6600;
+  border-color: #ff6600;
+}
+
+.btn-primary:hover {
+  background-color: #cc5200;
+  border-color: #cc5200;
+}
+
+.btn-outline-primary {
+  color: #ff6600;
+  border-color: #ff6600;
+}
+
+.btn-outline-primary:hover {
+  background-color: #ff6600;
+  border-color: #ff6600;
+}
+
+.bg-primary {
+  background-color: #ff6600 !important;
+}
+
+.card-img-top {
+  transition: transform 0.3s ease;
+}
+
+.motorcycle-card:hover .card-img-top {
+  transform: scale(1.05);
+}
+
+/* Image Gallery Styles */
+.thumbnail-image {
+  transition: all 0.3s ease;
+}
+
+.thumbnail-image:hover {
+  opacity: 0.8;
+  transform: scale(1.05);
+}
+
+.thumbnail-image.active {
+  border: 2px solid #ff6600 !important;
+}
+
+#mainImage {
+  transition: all 0.3s ease;
+}
+
+/* User Profile Styles */
+.list-group-item.active {
+  background-color: #ff6600;
+  border-color: #ff6600;
+}
+
+.list-group-item:hover {
+  background-color: #f8f9fa;
+}
+
+/* Login/Register Forms */
+.card-header {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #dee2e6;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+  border: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-item:hover {
+  background-color: #ff6600;
+  color: white;
+}
+
+footer {
+  margin-top: 100px;
+}
+
+.breadcrumb-item.active {
+  color: #ff6600;
+}
+
+.table th {
+  border-top: none;
+  background-color: #f8f9fa;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 50px 0;
+  }
+
+  .hero-section h1 {
+    font-size: 2.5rem;
+  }
+
+  .thumbnail-image {
+    height: 60px !important;
+  }
+
+  #mainImage {
+    height: 300px !important;
+  }
+}
+
+/* Alert styles */
+.alert-success {
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+  color: #155724;
+}
+
+.alert-danger {
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+  color: #721c24;
+}
+
+.alert-info {
+  background-color: #d1ecf1;
+  border-color: #bee5eb;
+  color: #0c5460;
+}
