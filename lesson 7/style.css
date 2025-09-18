@@ -28,20 +28,16 @@ h1 {
   font-weight: 700;
   }
 
-.box-rounded{
-  background: lightblue;
-  text-align: center;
-  padding:20px;
-  border-radius: 15px;
-  color: black;
-  border: 2px solid black;
 
-}
-.box-border-image{
-  border:20px solid transparent;
+.shadow {
+  background: antiquewhite;
   padding: 20px;
-  border-image-source:https://plus.unsplash.com/premium_photo-1694819488591-a43907d1c5cc?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y3V0ZSUyMGRvZ3xlbnwwfHwwfHx8MA%3D%3D;
-  border-image-slice:20;
- border-image-repeat:reapet;
+  margin: 20px;
+  box-shadow: 10px 10px 20px rgb(155, 149, 149);
 }
-
+.box-shadow{
+  background-color: rgb(146, 22, 22);
+  padding: 20px;
+  box-shadow:inset 0  0 10px rgb(247, 48, 48) ;
+  color: white;
+}

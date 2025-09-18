@@ -29,8 +29,7 @@
     </aside>
   </div>
 <?php endif; ?>
-<div class="box-rounded"> this box is rounded</div>
-<div class="box-rounded"> this image is rounded</div>
-
+<div class="shadow"> this box is shadow</div>
+<div class="box-shadow"> this image is shadow
 <?php get_footer(); ?>
 
