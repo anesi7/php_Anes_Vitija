@@ -115,3 +115,94 @@ class DS_Simple_Text_Widget extends WP_Widget {
 add_action( 'widgets_init', function() {
   register_widget( 'DS_Simple_Text_Widget' );
 } );
+// Customize excerpt length and "read more" text
+function ds_custom_excerpt( $length ) {
+  return 20; // words
+}
+add_filter( 'excerpt_length', 'ds_custom_excerpt', 999 );
+function ds_excerpt_more( $more ) {
+  return '... <a class="read-more" href="' . get_permalink() . '">' . __( 'Read More', 'dstheme' ) . '</a>';
+}
+add_filter( 'excerpt_more', 'ds_excerpt_more' );
+// Customize the login screen logo
+function ds_custom_login_logo() {
+  echo '<style type="text/css">
+    h1 a { background-image: url(' . get_stylesheet_directory_uri() . '/images/custom-logo.png) !important; 
+           width: 200px !important; height: 100px !important; background-size: contain !important; }
+  </style>';
+} 
+add_action( 'login_enqueue_scripts', 'ds_custom_login_logo' );
+// Change the login logo URL
+function ds_login_logo_url() {
+  return home_url();
+}
+add_filter( 'login_headerurl', 'ds_login_logo_url' );
+// Change the login logo title
+function ds_login_logo_url_title() {
+  return get_bloginfo( 'name' );
+}
+add_filter( 'login_headertitle', 'ds_login_logo_url_title' );
+// Customize the admin footer text
+function ds_custom_admin_footer() {
+  echo 'Customized by <a href="https://example.com" target="_blank">Your Name</a>. Powered by WordPress.';
+}
+add_filter( 'admin_footer_text', 'ds_custom_admin_footer' );
+// Limit post revisions to 5
+if ( ! defined( 'WP_POST_REVISIONS' ) ) {
+  define( 'WP_POST_REVISIONS', 5 );
+}
+// Set autosave interval to 300 seconds (5 minutes)
+if ( ! defined( 'AUTOSAVE_INTERVAL' ) ) {
+  define( 'AUTOSAVE_INTERVAL', 300 );
+}
+// Disable the Gutenberg block editor for posts
+
+function ds_disable_gutenberg( $is_enabled, $post_type ) {
+  if ( $post_type === 'post' ) {
+    return false; // Disable for posts
+  }
+  return $is_enabled; // Keep default for other post types
+}
+add_filter( 'use_block_editor_for_post_type', 'ds_disable_gutenberg', 10, 2 );
+// Enable Gutenberg for pages and custom post types
+function ds_enable_gutenberg( $is_enabled, $post_type ) {
+  if ( $post_type === 'page' || $post_type === 'your_custom_post_type' ) {
+    return true; // Enable for pages and custom post types
+  }
+  return $is_enabled; // Keep default for other post types
+}
+add_filter( 'use_block_editor_for_post_type', 'ds_enable_gutenberg', 10, 2 );
+// Customize the admin dashboard widgets
+function ds_remove_dashboard_widgets() {
+  remove_meta_box( 'dashboard_quick_press', 'dashboard', 'side' ); // Quick Draft
+  remove_meta_box( 'dashboard_primary', 'dashboard', 'side' ); // WordPress Events and News
+  remove_meta_box( 'dashboard_secondary', 'dashboard', 'normal' ); // Other WordPress News
+  remove_meta_box( 'dashboard_activity', 'dashboard', 'normal' ); // Activity
+}
+function mytheme_pagination($query= null,$args = array()){
+
+}
+function register_taxomony_movie_genres()
+ {
+  $labels = array(
+    'name'              => _x( 'Movie Genres', 'taxonomy general name', 'textdomain' ),
+    'singular_name'     => _x( 'Movie Genre', 'taxonomy singular name', 'textdomain' ),
+    'search_items'      => __( 'Search Movie Genres', 'textdomain' ),
+    'all_items'         => __( 'All Movie Genres', 'textdomain' ),
+    'parent_item'       => __( 'Parent Movie Genre', 'textdomain' ),
+    'parent_item_colon' => __( 'Parent Movie Genre:', 'textdomain' ),
+    'edit_item'         => __( 'Edit Movie Genre', 'textdomain' ),
+    'update_item'       => __( 'Update Movie Genre', 'textdomain' ),
+    'add_new_item'      => __( 'Add New Movie Genre', 'textdomain' ),
+    'new_item_name'     => __( 'New Movie Genre Name', 'textdomain' ),
+    'menu_name'         => __( 'Movie Genres', 'textdomain' ),
+  );
+
+  $args = array(
+    'hierarchical'      => true, // Like categories
+    'labels'            => $labels,
+    'show_ui'           => true,
+    'show_admin_column' => true,
+    'query_var'   => true,
+    'rewrite'           => array( 'slug' => 'movie-genre' ),
+    
